@@ -22,7 +22,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
       // else let normal navigation happen (e.g., privacy-policy.html)
-    }, { passive: true });
+    });
+  }
+
+  /* ========== Mobile hamburger menu toggle ========== */
+  const navToggle = document.querySelector('.nav-toggle');
+  const navMenuEl = document.querySelector('.nav-menu');
+  if (navToggle && navMenuEl) {
+    navToggle.addEventListener('click', () => {
+      const isOpen = navMenuEl.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+    // Close menu when a nav link is clicked
+    navMenuEl.addEventListener('click', (e) => {
+      if (e.target.closest('a')) {
+        navMenuEl.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
   }
 
   /* ========== Primary CTA scrolls to download ========== */
@@ -39,17 +56,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
+  /* ========== Toast notification helper ========== */
+  function showToast(message) {
+    const existing = document.querySelector('.gp-toast');
+    if (existing) existing.remove();
+    const toast = document.createElement('div');
+    toast.className = 'gp-toast';
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    // Trigger reflow so transition plays
+    void toast.offsetWidth;
+    toast.classList.add('gp-toast--visible');
+    setTimeout(() => {
+      toast.classList.remove('gp-toast--visible');
+      toast.addEventListener('transitionend', () => toast.remove(), { once: true });
+    }, 3000);
+  }
+
   /* ========== Download buttons (use real links when ready) ========== */
   const downloadButtons = document.querySelectorAll('.btn-download');
   downloadButtons.forEach((btn) => {
     btn.addEventListener('click', () => {
-      // Subtle press animation
-      btn.style.transform = 'scale(0.97)';
-      setTimeout(() => { btn.style.transform = ''; }, 120);
-
       const platform = btn.classList.contains('ios') ? 'iOS' : 'Android';
-      // TODO: Replace this with window.location.href = 'YOUR_STORE_LINK';
-      alert(`Download link for ${platform} coming soon!`);
+      // TODO: Replace showToast with window.location.href = 'YOUR_STORE_LINK';
+      showToast(`${platform} download coming soon!`);
     });
   });
 
@@ -142,15 +172,6 @@ document.addEventListener('DOMContentLoaded', () => {
     button.appendChild(ripple);
     setTimeout(() => ripple.remove(), 650);
   }
-
-  // inject ripple keyframes once
-  const key = document.createElement('style');
-  key.textContent = `
-    @keyframes ripple {
-      to { transform: scale(2); opacity: 0; }
-    }
-  `;
-  document.head.appendChild(key);
 
   // Apply ripple to interactive buttons (use pointerdown for snappier feel)
   const rippleTargets = document.querySelectorAll('button, .btn-download');

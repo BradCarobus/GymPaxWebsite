@@ -166,6 +166,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+    justify-content: flex-start;
 }
 
 .feature-pill {
@@ -184,12 +185,15 @@ body {
     align-items: center;
 }
 
+.hero-image {
+    animation: float 6s ease-in-out infinite;
+}
+
 .app-mockup {
     max-width: 100%;
     height: auto;
     border-radius: 20px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    animation: float 6s ease-in-out infinite;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2));
     padding: 20px;
     border: 1px solid rgba(0, 0, 0, 0.5);
@@ -198,6 +202,12 @@ body {
 @keyframes float {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-20px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-image {
+        animation: none;
+    }
 }
 
 /* Features Section */
@@ -363,10 +373,54 @@ body {
     font-size: 0.9rem;
 }
 
+/* Hamburger toggle button */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1001;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: #ffffff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
+    .nav-toggle {
+        display: flex;
+    }
+
     .nav-menu {
-        display: none;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(15, 15, 15, 0.98);
+        padding: 1rem 1.5rem;
+        gap: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transform: translateY(-10px);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .nav-menu.open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
     }
     
     .hero-container {
@@ -382,6 +436,10 @@ body {
     .hero-buttons {
         flex-direction: column;
         align-items: center;
+    }
+
+    .hero-features {
+        justify-content: center;
     }
     
     .btn-primary, .btn-secondary {
@@ -427,6 +485,15 @@ body {
     }
 }
 
+/* Focus indicators for keyboard navigation */
+a:focus-visible,
+button:focus-visible,
+.feature-pill:focus-visible {
+    outline: 2px solid #ff6b35;
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
 /* Smooth scrolling */
 html {
     scroll-behavior: smooth;
@@ -448,6 +515,35 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #ff8c69;
+}
+
+/* Toast notification */
+.gp-toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: rgba(30, 30, 30, 0.95);
+    color: #ffffff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 107, 53, 0.4);
+    font-size: 0.95rem;
+    font-weight: 500;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+}
+
+.gp-toast--visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Ripple animation */
+@keyframes ripple {
+    to { transform: scale(2); opacity: 0; }
 }
 
 /* Privacy Policy Styles */
