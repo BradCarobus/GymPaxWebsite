@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gym Pax Support - Get help, ask questions, and request support for the Gym Pax workout tracker app.">
+    <title>Support - Gym Pax</title>
+    <link rel="icon" type="image/png" href="Photos/icon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+                    <img src="Photos/icon.png" alt="Gym Pax Logo" class="logo-icon">
+                    <span class="logo-text">Gym Pax</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html#features" class="nav-link">Features</a>
+                <a href="index.html#download" class="nav-link">Download</a>
+                <a href="privacy-policy.html" class="nav-link">Privacy</a>
+                <a href="support.html" class="nav-link active">Support</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Support Page Content -->
+    <section class="support-page">
+        <div class="container">
+            <div class="support-content">
+                <h1 class="support-title">Support</h1>
+                <p class="support-subtitle">We're here to help. Ask questions or request support below.</p>
+
+                <!-- Contact Form -->
+                <div class="support-contact">
+                    <h2>Contact Us</h2>
+                    <p>Have a question or need help? Fill out the form below and we'll get back to you as soon as possible.</p>
+                    <form class="support-form" id="supportForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="John Smith" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject" required>
+                                <option value="" disabled selected>Select a topic</option>
+                                <option value="question">General Question</option>
+                                <option value="bug">Report a Bug</option>
+                                <option value="feature">Feature Request</option>
+                                <option value="data">Data &amp; Privacy</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="6" placeholder="Describe your question or issue..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Send Message</button>
+                    </form>
+                    <div class="form-success" id="formSuccess" style="display: none;">
+                        <div class="success-icon">&#10003;</div>
+                        <h3>Message Sent!</h3>
+                        <p>Thanks for reaching out. We'll reply to your email within 1&ndash;2 business days.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Section -->
+                <div class="support-faq">
+                    <h2>Frequently Asked Questions</h2>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            How do I log a workout?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Open the app, tap the "+" button to start a new workout session. Search for or browse exercises, then tap an exercise to add it. Enter your sets, reps, and weight for each set. Tap "Finish" when you're done to save the session to your history.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            What is a Pax?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>A Pax is a custom workout pack — a pre-built collection of exercises you or your crew can use as a routine. You can create your own Pax, share it with others, and load any Pax to kick off a workout session instantly.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            How do I create and share a Pax?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Navigate to the Pax tab and tap "Create Pax." Give it a name, then add exercises in the order you want to perform them. Once saved, use the share button to send it to friends via any messaging app or AirDrop.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Why does Gym Pax not require an account?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We believe you shouldn't need to hand over personal information just to track your workouts. Gym Pax stores everything locally on your device, so there's no account to sign up for, no email to verify, and no data leaving your phone.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            How do I back up or transfer my data?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Your workout data is included in your device's standard iCloud or iTunes backup automatically. To transfer to a new phone, restore from your backup and Gym Pax will have all your history. You can also export your data from the app's Settings screen.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            How do I delete my workout data?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>To delete individual workouts, swipe left on a session in your History tab and tap "Delete." To erase all data, go to Settings &gt; Delete All Data. Alternatively, uninstalling the app removes all locally stored data from your device.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Is Gym Pax free?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes. Gym Pax is free to download with no subscription and no hidden paywalls. Core features are available to everyone. We may offer optional one-time purchases for premium features in the future, but the core tracking experience will always be free.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            I found a bug. How do I report it?
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Use the contact form above and select "Report a Bug." Please include your device model, iOS version, and a description of what happened vs. what you expected. Screenshots are very helpful if you can attach them via email after submitting.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Direct Email Fallback -->
+                <div class="support-email">
+                    <p>Prefer email? Reach us directly at <a href="mailto:sparkcompanysup@gmail.com">sparkcompanysup@gmail.com</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="Photos/icon.png" alt="Gym Pax Logo" class="footer-logo">
+                    <span class="footer-logo-text">Gym Pax</span>
+                </div>
+                <div class="footer-text">
+                    <p>&copy; 2024 Gym Pax. Built for lifters, by lifters.
+                        <a href="privacy-policy.html" style="color: #ff6b35;">Privacy Policy</a> &middot;
+                        <a href="support.html" style="color: #ff6b35;">Support</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ accordion
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const expanded = btn.getAttribute('aria-expanded') === 'true';
+                // Close all
+                document.querySelectorAll('.faq-question').forEach(b => {
+                    b.setAttribute('aria-expanded', 'false');
+                    b.querySelector('.faq-icon').textContent = '+';
+                    b.nextElementSibling.style.maxHeight = null;
+                });
+                // Open clicked if it was closed
+                if (!expanded) {
+                    btn.setAttribute('aria-expanded', 'true');
+                    btn.querySelector('.faq-icon').textContent = '-';
+                    const answer = btn.nextElementSibling;
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                }
+            });
+        });
+
+        // Contact form — opens mailto with pre-filled body
+        document.getElementById('supportForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name    = document.getElementById('name').value.trim();
+            const email   = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value.trim();
+
+            const mailSubject = encodeURIComponent('Gym Pax Support: ' + subject);
+            const mailBody    = encodeURIComponent(
+                'Name: ' + name + '\n' +
+                'Email: ' + email + '\n\n' +
+                message
+            );
+
+            window.location.href = 'mailto:sparkcompanysup@gmail.com?subject=' + mailSubject + '&body=' + mailBody;
+
+            // Show success message
+            document.getElementById('supportForm').style.display = 'none';
+            document.getElementById('formSuccess').style.display = 'flex';
+        });
+    </script>
+</body>
+</html>
